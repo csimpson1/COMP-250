@@ -1,0 +1,13 @@
+To save you time in grading, you should note that this code only
+seems to solve the very simplest of sudoku puzzles. When run on harder problems
+it does not fill in any empty spaces, and may modify one or two "constant"
+members of the grid.I believe the problem has something to do with how the 
+array of possible values for each cell is updated when the method 
+recursiveSolve is called, but I cannot confirm this. I tried to watch the 
+solving process using the DrJava debugger, but the editor 
+eventually slowed to a halt and crashed.
+
+Also, due to the structure of the code the possibilities array mentioned above
+needed to be available at every level of the recursion, so I added it as a class
+field and updated the constructor as to initialize it. Hopefully this doesn't
+mess up any automated testing you might do. 

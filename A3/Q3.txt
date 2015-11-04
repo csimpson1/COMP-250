@@ -1,0 +1,35 @@
+Question 3:
+You are a hiker planning along trip of n days in the mountains of the Atacama 
+desert (in Chile). Your trail goes in a straight line from west to east, but
+its altitude varies because of the mountains it crosses. Since it is a very 
+hot place, you will walk exactly one (horizontal) mile per day. Your
+significant other agrees to join you for the trip but, since he/she is very
+romantic, he/she wants to know how many sunsets you will witness. you have
+a map that indicates the altitude of every campsite along the way, stored in
+an array altitude[0...n-1]. When at campsite i, you will be able to see the
+sunset only if, looking west, there are no  points with an altitude higher 
+than yours within the previous n/5 miles, i.e: altitude[i]>=altitude[i-k]
+for k=1,2...n/5. The trail starts at the pacific ocean, so the altitudes 
+west of campsite 0 are all zero. Assume that during any given day, the
+altitude either increases monotonically, decreases monotonically, or does 
+not change. We can safely assume there will be no vision obstructions due to
+rain, since it has not rained in the Atacama desert for the last hundred years.
+
+b) It is possible to calculate the number of sunsets in time O(n). This is 
+achieved by using a stack to keep track of positions of campsites that have a
+chance of blocking sunsets for upcoming days. For example, from campsite 7,
+only position 6 has a chance of blocking the sunset in the future, as all 
+campsites before 6 have a lower altitude than it. From campsite 14,
+only campsites 13 and 8 have a chance of blocking sunsets.By updating the
+content of the stack as you progress though the campsites, you can 
+significantly reduce the number of campsites whose altitude is compared
+to the current one. your algorithm will probably involve nested loops
+(the outer loop being over all campsites, the inner loop being other over
+the conternt of the stack), but think about it carefulle, and you will see 
+that the running time will nonetheless be O(n).
+
+Thoughts
+-> We are at campsite i. I scan backwards towards position 0, checking each
+peak individually. If I see a peak with a height higher than mine, I add it 
+to the stack. 
+->
